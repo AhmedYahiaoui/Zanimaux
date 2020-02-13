@@ -1,0 +1,89 @@
+produit_index:
+    path:     /produit/index
+    defaults: { _controller: "FrontBundle:Produit:index" }
+    methods:  GET
+
+produit_show:
+    path:     /produit/{ref}/show
+    defaults: { _controller: "FrontBundle:Produit:show" }
+    methods:  [GET, POST]
+
+produit_new:
+    path:     /produit/new
+    defaults: { _controller: "FrontBundle:Produit:new" }
+    methods:  [GET, POST]
+
+produit_edit:
+    path:     /produit/{ref}/edit
+    defaults: { _controller: "FrontBundle:Produit:edit" }
+    methods:  [GET, POST]
+
+produit_delete:
+    path:     /produit/{ref}/delete
+    defaults: { _controller: "FrontBundle:Produit:delete" }
+    methods:  DELETE
+
+
+
+
+
+
+
+evenement_index:
+    path:     /evenement
+    defaults: { _controller: "FrontBundle:Evenement:index" }
+    methods:  GET
+
+evenement_show:
+    path:     /evenement/{ref}/show
+    defaults: { _controller: "FrontBundle:Evenement:show" }
+    methods:  [GET, POST]
+
+evenement_new:
+    path:     /evenement/new
+    defaults: { _controller: "FrontBundle:Evenement:new" }
+    methods:  [GET, POST]
+
+evenement_edit:
+    path:     /evenement/{ref}/edit
+    defaults: { _controller: "FrontBundle:Evenement:edit" }
+    methods:  [GET, POST]
+
+evenement_delete:
+    path:     /evenement/{ref}/delete
+    defaults: { _controller: "FrontBundle:Evenement:delete" }
+    methods:  DELETE
+
+
+
+
+article_index:
+    path:     /article
+    defaults: { _controller: "FrontBundle:Article:index" }
+    methods:  GET
+
+article_show:
+    path:     /article/{id}/show
+    defaults: { _controller: "FrontBundle:Article:show" }
+    methods:  [GET, POST]
+
+article_new:
+    path:     /article/new
+    defaults: { _controller: "FrontBundle:Article:new" }
+    methods:  [GET, POST]
+
+article_edit:
+    path:     /article/{id}/edit
+    defaults: { _controller: "FrontBundle:Article:edit" }
+    methods:  [GET, POST]
+
+article_delete:
+    path:     /article/{id}/delete
+    defaults: { _controller: "FrontBundle:Article:delete" }
+    methods:  DELETE
+
+
+verterinaire_index:
+    path:     /veterinaire
+    defaults: { _controller: "FrontBundle:Article:Veterinaire" }
+    methods:  GET

@@ -1,0 +1,165 @@
+{% extends "::layoutAdmin.html.twig" %}
+
+{% block contenu %}
+
+    <style>
+        h3 {
+            color: #d81d1d;
+            font-family: cursive;
+            margin-right: 20%;
+        }
+
+        h {
+            color: #007bb6;
+            font-family: cursive;
+            margin-right: 20%;
+        }
+    </style>
+
+
+    <style>
+        #frontbundle_produit_marque,#frontbundle_produit_prix,#frontbundle_produit_description,#frontbundle_produit_nom
+        ,#frontbundle_produit_adresseBoutique,#frontbundle_produit_numTele,#frontbundle_produit_noImage,#frontbundle_produit_file,#frontbundle_produit_type,#frontbundle_produit_nomBoutique{
+            width: 60%;
+            height: 50px;
+            padding: 12px 18px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 1.5px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+            -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+            transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        }
+        #frontbundle_evenement_Valider{
+            width: 100%;
+
+        }
+        #frontbundle_evenement_Annuler{
+            background-color: red;
+            background-color: #d05c5c;
+            box-shadow: 4px 2px 3px 0px black;
+        }
+
+        #frontbundle_evenement_Ajouter{
+            background-color: blue;
+            background-color: #469dcc;
+            box-shadow: 4px 2px 3px 0px black;
+        }
+
+        h3{
+
+            color: #cd0d1e;
+
+        }
+
+        #frontbundle_produit_Valider{
+            width: 100%;
+
+        }
+        #frontbundle_produit_Annuler{
+            background-color: red;
+            background-color: #d05c5c;
+            box-shadow: 4px 2px 3px 0px black;
+        }
+
+        #frontbundle_produit_Ajouter{
+            background-color: blue;
+            background-color: #469dcc;
+            box-shadow: 4px 2px 3px 0px black;
+        }
+
+
+
+    </style>
+
+
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main" style="
+    background-color: #fff;
+">
+    <br><br><br><br><br><br>
+        <center><h3> Product Create</h3></center>
+    {{ form_start(f) }}
+
+            <h1> Nom : </h1>
+             {{ form_widget(f.nom) }}
+
+
+
+              <h1> Type : </h1>
+             {{ form_widget(f.type) }} 
+        
+
+       
+            <h1> marque : </h1>
+             {{ form_widget(f.marque) }}
+        
+
+       
+           <h1>Prix</h1>
+              {{ form_widget(f.prix) }}
+        
+
+       
+        <h1>description :  </h1>
+            {{ form_widget(f.description) }}
+
+        
+
+
+       
+          <h1> Quantite :</h1>
+        {{ form_widget(f.quantite) }}
+        
+
+
+       
+            <h1>Adress Boutique :</h1>
+             {{ form_widget(f.adresseBoutique) }}
+        
+
+
+       
+            <h1>Nom Boutique :</h1>
+               {{ form_widget(f.nomBoutique) }}
+        
+       
+        <h1>NumTele :</h1>
+            {{ form_widget(f.numTele) }}
+        
+
+
+       
+            <h1>Etat :</h1>
+            {{ form_widget(f.etat) }}
+        
+
+        
+           <h1> Image :</h1>  I
+         {{ form_widget(f.file) }}
+
+
+
+  
+
+    <table>
+       
+             
+            <td> {{ form_widget(f.Ajouter) }} </td>
+            <td> {{ form_widget(f.Annuler) }}
+        
+    </table>
+
+    <br>
+    <br>
+    <br>
+    <br>
+</div>
+
+
+    {{ form_end(f) }}
+
+
+
+{% endblock %}

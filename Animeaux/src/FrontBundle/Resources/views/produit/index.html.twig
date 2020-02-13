@@ -1,0 +1,241 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="{{ asset('Front/js/rating.js') }}"></script>
+    <link  rel="stylesheet" type="text/css" href="{{ asset('Front/css/rating.css') }}" >
+
+
+    <h3 class="elements-subheader">Products list </h3>
+<div class="page container">
+
+
+
+    <div class="row">
+
+        <!-- /col-lg -->
+
+        <!-- /col-lg -->
+    </div>
+
+    <center><a class="btn btn-quaternary"  href="{{ path('produit_index') }}">All</a></center>
+    <!-- centered Gallery navigation -->
+    <ul class="nav nav-pills category-isotope center-nav mt-5">
+        <li class="nav-item">
+
+
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#" data-toggle="tab" data-filter=".cosmetique">Cosmétique</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#" data-toggle="tab" data-filter=".alimentaire">alimentaire</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#" data-toggle="tab" data-filter=".accesoire">Accesoires</a>
+        </li>
+    </ul>
+    <!-- /ul -->
+    <!-- Gallery -->
+    <div id="gallery-isotope" class="row row-eq-height mt-lg-5">
+
+
+
+        {% for produit in p_cos %}
+
+            <div class="cosmetique col-lg-6">
+                <div class="isotope-item">
+                    <div class="adopt-card res-margin row bg-light pattern2">
+                        <div class="col-md-5">
+                            <!-- Image -->
+                            <div class="adopt-image d-flex flex-wrap align-items-center ">
+
+                                <img src="{{ asset('images/') }}{{ p_cos.0.nomImage }}" class="img-fluid" alt="">
+
+
+
+                            </div>
+                        </div>
+                        <div class="col-md-7 res-margin">
+                            <!-- Name -->
+                            <div class="caption-adoption">
+                                <h5 class="adoption-header"> {{ p_cos.0.nom }} </h5>
+                                <!-- List -->
+                                <ul class="list-unstyled">
+                                    <li><strong>Marque :</strong> {{ p_cos.0.marque }}</li>
+                                    <li><strong>Type :</strong> {{ p_cos.0.type }}</li>
+                                    <li><strong>Prix :</strong> {{ p_cos.0.prix }} </li>
+
+
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-12 mt-3">
+                            <!-- Button -->
+                            <div class="text-center">
+                                <!-- Adopt info -->
+                                <ul class="adopt-card-info list-unstyled">
+
+                                    <li >{{ p_cos.0.rating|rating(5) }}
+                                    </li>
+                                </ul>
+                                <!-- button-->
+                                <a href="{{ path('produit_show', { 'ref': p_cos.0.ref }) }} " class="btn btn-primary">More Info</a>
+
+
+                            </div>
+                            <!-- /text-center -->
+                        </div>
+                        <!-- /col-md -->
+                    </div>
+                    <!-- /adopt-card -->
+                </div>
+                <!-- /isotope-item-->
+            </div>
+        {% endfor %}
+
+
+
+        {% for p in p_ali %}
+
+
+            <div class="alimentaire col-lg-6">
+                <div class="isotope-item">
+                    <div class="adopt-card res-margin row bg-light pattern2">
+                        <div class="col-md-5">
+                            <!-- Image -->
+                            <div class="adopt-image d-flex flex-wrap align-items-center ">
+
+                                <img src="{{ asset('images/') }}{{ p.nomImage }}" class="img-fluid" alt="">
+
+
+
+                            </div>
+                        </div>
+                        <div class="col-md-7 res-margin">
+                            <!-- Name -->
+                            <div class="caption-adoption">
+                                <h5 class="adoption-header"> {{ p.nom }} </h5>
+                                <!-- List -->
+                                <ul class="list-unstyled">
+                                    <li><strong>Marque :</strong> {{ p.marque }}</li>
+                                    <li><strong>Type :</strong> {{ p.type }}</li>
+                                    <li><strong>Prix :</strong> {{ p.prix }} </li>
+
+
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-12 mt-3">
+                            <!-- Button -->
+                            <div class="text-center">
+                                <!-- Adopt info -->
+                                <ul class="adopt-card-info list-unstyled">
+
+                                    <li >{{ p.rating|rating(5) }}
+                                    </li>
+                                </ul>
+                                <!-- button-->
+                                <a href="{{ path('produit_show', { 'ref': p.ref }) }} " class="btn btn-primary">More Info</a>
+
+
+                            </div>
+                            <!-- /text-center -->
+                        </div>
+                        <!-- /col-md -->
+                    </div>
+                    <!-- /adopt-card -->
+                </div>
+                <!-- /isotope-item-->
+            </div>
+        {% endfor %}
+
+
+
+        {% for p2 in p_acc %}
+            <div class="accesoire col-lg-6">
+                <div class="isotope-item">
+                    <div class="adopt-card res-margin row bg-light pattern2">
+                        <div class="col-md-5">
+                            <!-- Image -->
+                            <div class="adopt-image d-flex flex-wrap align-items-center ">
+
+                                <img src="{{ asset('images/') }}{{ p2.nomImage }}" class="img-fluid" alt="">
+
+
+
+                            </div>
+                        </div>
+                        <div class="col-md-7 res-margin">
+                            <!-- Name -->
+                            <div class="caption-adoption">
+                                <h5 class="adoption-header"> {{ p2.nom }} </h5>
+                                <!-- List -->
+                                <ul class="list-unstyled">
+                                    <li><strong>Marque :</strong> {{ p2.marque }}</li>
+                                    <li><strong>Type :</strong> {{ p2.type }}</li>
+                                    <li><strong>Prix :</strong> {{ p2.prix }} </li>
+
+
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-12 mt-3">
+                            <!-- Button -->
+                            <div class="text-center">
+                                <!-- Adopt info -->
+                                <ul class="adopt-card-info list-unstyled">
+
+                                    <li >{{ p2.rating|rating(5) }}
+                                    </li>
+                                </ul>
+                                <!-- button-->
+                                <a href="{{ path('produit_show', { 'ref': p2.ref }) }} " class="btn btn-primary">More Info</a>
+
+
+                            </div>
+                            <!-- /text-center -->
+                        </div>
+                        <!-- /col-md -->
+                    </div>
+                    <!-- /adopt-card -->
+                </div>
+                <!-- /isotope-item-->
+            </div>
+
+        {% endfor %}
+
+
+
+
+
+
+
+
+        <!-- /col-lg- -->
+
+
+
+
+
+
+
+    </div>
+    <!-- /gallery-isotope-->
+
+    <!-- /col-md -->
+</div>
+
+
+
+
+
+
+
+    {% endblock %}

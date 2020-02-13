@@ -1,0 +1,84 @@
+{% extends "::base.html.twig" %}
+
+
+{% block body %}
+
+    {{ form_start(f) }}
+
+    <table>
+        <tr>
+            <th> Nom Produits </th>
+            <th> {{ form_widget(f.nom) }} </th>
+        </tr>
+
+        <tr>
+            <th> Type Produit </th>
+            <th> {{ form_widget(f.type) }} </th>
+        </tr>
+
+        <tr>
+            <th> marque : </th>
+            <th> {{ form_widget(f.marque) }}</th>
+        </tr>
+
+        <tr>
+            <th> Prix </th>
+            <th>  {{ form_widget(f.prix) }}</th>
+        </tr>
+
+        <tr>
+            <th> description :  </th>
+            <th>{{ form_widget(f.description) }}</th>
+
+        </tr>
+
+
+        <tr>
+            <th>quantite :</th>
+            <th>{{ form_widget(f.quantite) }}</th>
+        </tr>
+
+
+        <tr>
+            <th> adresseBoutique :</th>
+            <th> {{ form_widget(f.adresseBoutique) }}</th>
+        </tr>
+
+
+        <tr>
+            <th> nomBoutique :</th>
+            <th>   {{ form_widget(f.nomBoutique) }}</th>
+        </tr>
+        <tr>
+            <th>numTele :</th>
+            <th>{{ form_widget(f.numTele) }}</th>
+        </tr>
+
+
+        <tr>
+            <th> etat :</th>
+            <th>{{ form_widget(f.etat) }}</th>
+        </tr>
+
+        <tr>
+            <th> Image :</th>
+            <th>{{ form_widget(f.file) }}</th>
+        </tr>
+
+
+    </table> <br>
+
+
+    {{ form_widget(f.Ajouter) }}
+
+    {{ form_widget(f.Annuler) }}
+
+
+
+
+
+    {{ form_end(f) }}
+
+
+
+{% endblock %}

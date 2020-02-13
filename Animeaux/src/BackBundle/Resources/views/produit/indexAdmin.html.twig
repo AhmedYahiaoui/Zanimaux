@@ -1,0 +1,86 @@
+{% extends "::layoutAdmin.html.twig" %}
+
+{% block contenu %}
+
+
+    <style>
+        h1 {
+            color: #d81d1d;
+            font-family: cursive;
+
+        }
+        .btn-warning {
+            background-color: #f9133e;
+            border-color: #e08e0b;
+        }
+    </style>
+    <br><br>
+
+    <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main" style="
+    background-color: #fff;
+">
+
+
+        <center><h1>Product list</h1></center>
+
+
+
+
+
+        <table class="table table-striped table-hover">
+
+            <tr>
+
+                <th  style="width:10%" class="danger">nom</th>
+                <th  style="width:10%" class="danger">Marque</th>
+                <th  style="width:10%" class="danger">type</th>
+                <th  style="width:10%" class="danger">prix</th>
+                <th  style="width:10%" class="danger">quantité</th>
+                <th  style="width:30%" class="danger">description</th>
+                <th  style="width:10%" class="danger">rating</th>
+                <th  style="width:10%" class="danger">adresse boutique</th>
+                <th  style="width:10%" class="danger">nom boutique</th>
+                <th  style="width:10%" class="danger">num_tele</th>
+                <th  style="width:10%" class="danger">etat</th>
+                <th  style="width:10%" class="danger">image</th>
+
+                <th  style="width:10%" class="danger">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            {% for produit in produits %}
+
+
+
+                <tr>
+                    <td> {{ produit.nom }}</td>
+                    <td>{{ produit.marque }}</td>
+                    <td>{{ produit.type }}</td>
+                    <td>{{ produit.prix }}</td>
+                    <td>{{ produit.quantite }}</td>
+                    <td>{{ produit.description }}</td>
+                    <td>{{ produit.rating }}</td>
+                    <td>{{ produit.adresseBoutique }}</td>
+                    <td>{{ produit.nomBoutique }}</td>
+                    <td>{{ produit.numTele }}</td>
+                    <td>{{ produit.etat }}</td>
+                    <td>
+                    <img src="{{ asset('images/') }}{{ produit.nomImage }}" class="img-fluid" alt=""  width="70px"></td>
+
+                    <td>
+                        <ul>
+                            <li>
+                                <a href="{{ path('produit_Admin_edit', { 'ref': produit.ref }) }}">edit</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('produit_Admin_delete', { 'ref': produit.ref }) }}">delete</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+        {% endblock %}

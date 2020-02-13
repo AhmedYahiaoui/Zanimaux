@@ -1,0 +1,60 @@
+{% extends '::layoutAdmin.html.twig' %}
+
+{% block contenu %}
+<style>
+    h1 {
+        color: #d81d1d;
+        font-family: cursive;
+
+    }
+    .btn-warning {
+        background-color: #f9133e;
+        border-color: #e08e0b;
+    }
+</style>
+<br><br>
+
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main" style="
+    background-color: #fff;
+">
+
+
+    <center><h1>Article list</h1></center>
+
+
+    <table class="table table-striped table-hover">
+
+        <tr>
+
+                <th  style="width:25%" class="danger">Nom article</th>
+                <th  style="width:25%" class="danger">User</th>
+                <th  style="width:25%" class="danger">Nombre des Vues</th>
+                <th  style="width:25%" class="danger">Description</th>
+                <th  style="width:25%" class="danger">Date_creation</th>
+                <th  style="width:25%" class="danger">Image</th>
+                <th  style="width:25%" class="danger">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for article in articles %}
+            <tr>
+                <td>{{ article.nomArticle }}</td>
+                <td>{{ article.idUser }}</td>
+                <td>{{ article.nbVue }}</td>
+                <td>{{ article.description }}</td>
+                <td>{% if article.datecreation %}{{ article.datecreation|date('Y-m-d') }}{% endif %}</td>
+                <td><img src="{{ asset('images/') }}{{ article.nomImage }}" class="img-fluid" alt=""  width="70px"></td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('article_delete', { 'id': article.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+{% endblock %}

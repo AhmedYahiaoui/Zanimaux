@@ -1,0 +1,71 @@
+{% extends '::layoutAdmin.html.twig' %}
+
+{% block contenu %}
+<style>
+    h1 {
+        color: #d81d1d;
+        font-family: cursive;
+
+    }
+    .btn-warning {
+        background-color: #f9133e;
+        border-color: #e08e0b;
+    }
+</style>
+<br><br>
+
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main" style="
+    background-color: #fff;
+">
+
+
+    <center><h1>Evenements list</h1></center>
+    <a href="{{ path('evenement_new') }}" class="btn btn-warning">Ajouter nouveau Evenement </a> <br><br>
+
+    <table class="table table-striped table-hover">
+
+        <tr>
+
+            <th  style="width:25%" class="danger">Ref</th>
+            <th  style="width:25%" class="danger">Nom</th>
+            <th  style="width:25%" class="danger">Dae_debut</th>
+            <th  style="width:25%" class="danger">Date_fin</th>
+            <th  style="width:25%" class="danger">Lieu</th>
+            <th  style="width:25%" class="danger">Organisateur</th>
+            <th  style="width:25%" class="danger">Description</th>
+            <th  style="width:25%" class="danger">Nbr_participant</th>
+            <th  style="width:25%" class="danger">image</th>
+
+            <th  style="width:25%" class="danger">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for evenement in evenements %}
+            <tr>
+                <td><a href="{{ path('evenement_show', { 'ref': evenement.ref }) }}">{{ evenement.ref }}</a></td>
+                <td>{{ evenement.nom }}</td>
+                <td>{% if evenement.datedebut %}{{ evenement.datedebut|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if evenement.datefin %}{{ evenement.datefin|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ evenement.lieu }}</td>
+                <td>{{ evenement.organisateur }}</td>
+                <td>{{ evenement.description }}</td>
+                <td>{{ evenement.nbrparticipant }}</td>
+                <td><img src="{{ asset('images/') }}{{ evenement.nomImage }}" class="img-fluid" alt=""  width="70px"></td>
+
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('evenement_Admin_edit', { 'ref': evenement.ref }) }}">edit</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('evenement_Admin_delete', { 'ref': evenement.ref }) }}">delete</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+    {% endblock %}

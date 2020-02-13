@@ -1,0 +1,24 @@
+evenement_index:
+    path:     /
+    defaults: { _controller: "FrontBundle:Evenement:index" }
+    methods:  GET
+
+evenement_show:
+    path:     /{ref}/show
+    defaults: { _controller: "FrontBundle:Evenement:show" }
+    methods:  GET
+
+evenement_new:
+    path:     /new
+    defaults: { _controller: "FrontBundle:Evenement:new" }
+    methods:  [GET, POST]
+
+evenement_edit:
+    path:     /{ref}/edit
+    defaults: { _controller: "FrontBundle:Evenement:edit" }
+    methods:  [GET, POST]
+
+evenement_delete:
+    path:     /{ref}/delete
+    defaults: { _controller: "FrontBundle:Evenement:delete" }
+    methods:  DELETE

@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Evenement creation</h1>
+    {{ form_start(form) }}
+    <table>
+
+        <tr>
+            <th> Nom </th>
+            <th> {{ form_widget(form.nom) }} </th>
+        </tr>
+
+        <tr>
+            <th> date debut </th>
+            <th> {{ form_widget(form.date_debut) }} </th>
+        </tr>
+        <tr>
+            <th> date fin </th>
+            <th> {{ form_widget(form.date_fin) }} </th>
+        </tr>
+        <tr>
+            <th> lieu </th>
+            <th> {{ form_widget(form.lieu) }} </th>
+        </tr>
+        <tr>
+            <th> organisateur </th>
+            <th> {{ form_widget(form.organisateur) }} </th>
+        </tr>
+
+        <tr>
+            <th> description </th>
+            <th> {{ form_widget(form.description) }} </th>
+        </tr>
+
+        <tr>
+            <th> nbr participant </th>
+            <th> {{ form_widget(form.nbr_participant) }} </th>
+        </tr>
+
+
+        <tr>
+            <th> Image </th>
+            <th> {{ form_widget(form.file) }} </th>
+        </tr>
+
+        <tr>
+            <th> </th>
+            <th> {{ form_widget(form.Valider) }} </th>
+        </tr>
+
+
+    </table>
+
+    {{ form_end(form) }}
+
+
+
+    <ul>
+        <li>
+            <a href="{{ path('evenement_index') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}

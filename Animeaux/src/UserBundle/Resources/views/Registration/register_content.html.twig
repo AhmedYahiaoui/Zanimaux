@@ -1,0 +1,87 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+
+
+{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+
+<center>
+
+
+
+    <br><br><br>
+    <table>
+
+        <tr>
+            <th> {{ form_widget(form.name, {'attr': {'class': 'form-control', 'placeholder':'Name'}})  }}</th>
+        </tr>
+
+
+
+        <tr>
+            <th>{{ form_widget(form.username, {'attr': {'class': 'form-control', 'placeholder':'Username'}})  }} </th>
+        </tr>
+
+
+
+        <tr>
+            <th>
+                {{ form_widget(form.plainPassword.first, {'attr': {'class': 'form-control', 'placeholder':'Password'}})  }}
+            </th>
+        </tr>
+
+        <tr>
+            <th>
+                {{ form_widget(form.plainPassword.second, {'attr': {'class': 'form-control', 'placeholder':'Repeat password'}})  }}
+            </th>
+        </tr>
+
+        <tr>
+            <th>
+                {{ form_widget(form.email, {'attr': {'class': 'form-control', 'placeholder':'Adresse mail'}})  }}
+            </th>
+
+        </tr>
+
+
+        <tr>
+            <th>
+                {{ form_widget(form.roles, {'attr': {'class': 'form-control', 'placeholder':'Roles'}})  }}
+            </th>
+
+        </tr>
+
+        <tr>
+            <th>
+                <center> <input type="submit" class="btn btn-warning" value="{{ 'registration.submit'|trans }}  " /> </center>
+            </th>
+        </tr>
+
+    </table>
+</center>
+
+
+
+
+{#
+
+{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+
+
+{{ form_widget(form) }}
+
+{{ form_widget(form.name, {'attr': {'class': 'form-control', 'placeholder':'Name'}})  }}
+{{ form_widget(form.username, {'attr': {'class': 'form-control', 'placeholder':'Adresse mail'}})  }}
+{{ form_widget(form.plainPassword.first, {'attr': {'class': 'form-control', 'placeholder':'Adresse mail'}})  }}
+{{ form_widget(form.plainPassword.second, {'attr': {'class': 'form-control', 'placeholder':'Adresse mail'}})  }}
+{{ form_widget(form.email, {'attr': {'class': 'form-control', 'placeholder':'Adresse mail'}})  }}
+
+
+
+
+    <div>
+        <input type="submit" class="btn btn-warning" value="{{ 'registration.submit'|trans }}  " />
+    </div>
+#}
+
+
+{{ form_end(form) }}

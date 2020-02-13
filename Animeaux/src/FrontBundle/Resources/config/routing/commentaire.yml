@@ -1,0 +1,24 @@
+commentaire_index:
+    path:     /
+    defaults: { _controller: "FrontBundle:Commentaire:index" }
+    methods:  GET
+
+commentaire_show:
+    path:     /{id}/show
+    defaults: { _controller: "FrontBundle:Commentaire:show" }
+    methods:  GET
+
+commentaire_new:
+    path:     /new
+    defaults: { _controller: "FrontBundle:Commentaire:new" }
+    methods:  [GET, POST]
+
+commentaire_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "FrontBundle:Commentaire:edit" }
+    methods:  [GET, POST]
+
+commentaire_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "FrontBundle:Commentaire:delete" }
+    methods:  DELETE

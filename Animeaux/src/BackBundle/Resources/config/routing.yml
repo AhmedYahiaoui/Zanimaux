@@ -1,0 +1,89 @@
+back_homepage:
+    path:     /
+    defaults: { _controller: "BackBundle:Default:index" }
+
+produit_Admin_index:
+    path:     /produit/index
+    defaults: { _controller: "BackBundle:Produit:index" }
+    methods:  GET
+
+produit_Admin_show:
+    path:     /produit/{ref}/show
+    defaults: { _controller: "BackBundle:Produit:show" }
+    methods:  [GET, POST]
+
+produit_Admin_new:
+    path:     /produit/new
+    defaults: { _controller: BackBundle:Produit:new }
+    methods:  [GET, POST]
+
+produit_Admin_edit:
+    path:     /produit/{ref}/edit
+    defaults: { _controller: BackBundle:Produit:edit }
+    methods:  [GET, POST]
+
+produit_Admin_delete:
+    path:     /produit/{ref}/delete
+    defaults: { _controller: BackBundle:Produit:delete }
+    methods:  DELETE
+
+
+
+evenement_Admin_index:
+    path:     /evenement
+    defaults: { _controller: BackBundle:Evenement:index }
+
+
+evenement_Admin_show:
+    path:     /evenement/{ref}/show
+    defaults: { _controller: BackBundle:Evenement:show }
+    methods:  GET
+
+evenement_Admin_new:
+    path:     /evenement/new
+    defaults: { _controller: BackBundle:Evenement:new }
+    methods:  [GET, POST]
+
+evenement_Admin_edit:
+    path:     /evenement/{ref}/edit
+    defaults: { _controller: BackBundle:Evenement:edit }
+    methods:  [GET, POST]
+
+evenement_Admin_delete:
+    path:     /evenement/{ref}/delete
+    defaults: { _controller: BackBundle:Evenement:delete }
+
+
+
+
+feed_Admin_index:
+    path:     /feed
+    defaults: { _controller: BackBundle:Feed:index }
+
+article_Admin_index:
+    path:     /article
+    defaults: { _controller: BackBundle:Article:index }
+
+commentaire_Admin_index:
+    path:     /commentaire
+    defaults: { _controller: BackBundle:Commentaire:index }
+
+feed_Admin_new:
+    path:     /feed/new
+    defaults: { _controller: BackBundle:Feed:new }
+    methods:  [GET, POST]
+
+
+feed_Admin_delete:
+    path:     /feed/{id}/delete
+    defaults: { _controller: BackBundle:Feed:delete }
+
+commentaire_Admin_delete:
+    path:     /commentaire/{id}/delete
+    defaults: { _controller: BackBundle:Commentaire:delete }
+
+article_Admin_delete:
+    path:     /article/{id}/delete
+    defaults: { _controller: BackBundle:Article:delete }
+
+

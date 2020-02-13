@@ -1,0 +1,20 @@
+user:
+    resource: "@UserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+back:
+    resource: "@BackBundle/Resources/config/routing.yml"
+    prefix:   /back
+
+front:
+    resource: "@FrontBundle/Resources/config/routing.yml"
+    prefix:   /front
+
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation

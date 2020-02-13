@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+
+
+    <div class="page container">
+        <div class="row">
+            <!-- page  starts -->
+            <div class="col-lg-12">
+                <h2>Events</h2>
+                <span class="h7 mt-0"></span>
+                <hr class="small-divider left">
+
+
+
+
+                <div class="row mt-5">
+                    <!-- event 1 -->
+                    {% for evenement in R %}
+
+                    <div class="col-lg-4 widget2">
+
+
+                            <div class="card bg-light" >
+
+
+                            <div class="card-img">
+                                <!-- image event -->
+                                <a href="{{ path('evenement_show', { 'ref': evenement.ref }) }}">
+                                    <img class="card-img-top" src="{{ asset('images/') }}{{ evenement.nomImage }}" alt="">
+                                </a>
+                            </div>
+                            <div class="card-body text-center">
+                                <!-- event info -->
+                                <a href="event-single.html">
+                                    <h5 class="card-title">{{ evenement.nom }}</h5>
+                                </a>
+                                <ul class="list-unstyled colored-icons">
+                                    <li><span><i class="fas fa-calendar-alt mr-2"></i>{{ evenement.datedebut|date('Y-m-d') }}</span></li>
+                                    <li><span><i class="fas fa-map-marker-alt mr-2"></i>{{ evenement.lieu }}</span></li>
+                                    <li><span><i class="flaticon-animals-11"></i> {{ evenement.organisateur }}</span></li>
+                                </ul>
+                                <!-- button -->
+                                <a href="{{ path('evenement_show', { 'ref': evenement.ref }) }}" class="btn btn-primary btn-sm mt-0">More info</a>
+                            </div>
+                            <!--/card-body text-center -->
+                        </div>
+                        <!-- /card -->
+                    </div>
+
+                    {% endfor %}
+                    <div class="col-md-12 mt-5">{{ knp_pagination_render(R) }}</div>
+
+
+
+                    <!--/widget2 -->
+                </div>
+
+                <!--/row ends -->
+                <!-- row -->
+
+
+
+
+                <!-- /col-md -->
+            </div>
+            <!-- /col-lg-12 -->
+        </div>
+        <!-- /row -->
+    </div>
+
+
+
+{% endblock %}

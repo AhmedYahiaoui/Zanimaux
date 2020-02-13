@@ -1,0 +1,123 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div id="blog-home" class="page">
+        <div class="container">
+            <div class="row">
+                <!-- Blog Entries Column -->
+                <div class="col-lg-9 page-with-sidebar">
+                    <div class="row">
+
+
+                        <div class="container">
+                            <h2>{{ evenement.nom }}</h2>
+                            <div class="row mt-4">
+                                <!-- event INFO -->
+                                <div class="col-lg-5">
+                                    <!-- image event -->
+                                    <img class="img-fluid rounded" src="{{ asset('images/') }}{{ evenement.nomImage }}"/>
+                                </div>
+                                <div class="col-lg-7">
+                                    <!-- list -->
+                                    <ul class="list-unstyled colored-icons font-weight-bold res-margin">
+                                        <li>
+                                            <span><i class="fas fa-calendar-alt mr-2"></i>Date début : {{ evenement.datedebut|date('d-m-Y') }}</span>
+                                        </li>
+                                        <li>
+                                            <span><i class="fas fa-calendar-alt mr-2"></i>Date fin : {{ evenement.datefin|date('d-m-Y') }}</span>
+                                        </li>
+                                        <li><span><i class="fas fa-map-marker-alt mr-2"></i>Lieu : {{ evenement.lieu }}</span></li>
+                                        <li>
+
+                                        </li>
+                                        <li>
+                                            <span><i class="flaticon-man-combing-a-dog"></i> NBR Participants : {{ evenement.nbr_participant }}</span>
+                                        </li>
+                                    </ul>
+                                    <p>
+                                        {{ evenement.description }}
+                                    </p>
+                                    <!-- Button -->
+                                    <form method="POST" name="fp">
+
+
+
+                                    <input type="submit" name="part" class="btn btn-primary mt-2" value="Participé">
+
+
+                                    </form>
+                                </div>
+                                <!-- col-lg-7 -->
+                            </div>
+                            <!-- /row -->
+                            <!-- map-->
+                            <div id="map-canvas" class="mt-5 map-small-height"></div>
+                            <!-- custom link -->
+                            <a class="custom-link  mt-5" href="{{ path('evenement_index') }}">Go back to Events page</a>
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
+                    </div>
+                    <!-- /row -->
+
+                    <!-- /col-md -->
+                </div>
+                <!-- /page-with-sdiebar -->
+                <!-- Sidebar -->
+
+
+                <div id="sidebar" class="bg-light h-100 col-lg-3 card pattern3">
+                    <!--widget-area -->
+                    <div class="widget-area">
+                        <h5 class="sidebar-header"></h5>
+
+                        <form method="POST" name="formee" >
+                            <div class="input-group">
+                                <input type="text" name="test" class="form-control" placeholder="Your FeedBack... ">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-secondary btn-sm" type="submit" >ADD</button>
+                                    </span>
+                                {% if success is defined %}
+                                    <div class="alert alert-success"><i class="fa fa-info-circle"></i>  {{ success }}</div>
+                                {% endif %}
+                            </div>
+                        </form>
+
+
+                    </div>
+                    <!--/widget-area -->
+                    <div class="widget-area">
+                        <h5 class="sidebar-header">FeedBacks</h5>
+                        <div class="list-group">
+                            {% for feeds in feedEvent %}
+                              <div class="alert alert-light" role="alert">
+                                {{ feeds.description }}
+                                  <br><br>
+
+                                  <center><h9>--------------------</h9></center>
+                                  <center><h9>{{ feeds.dateFeed|date('d-m-Y') }}</h9></center>
+
+
+                              </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <!--/widget-area -->
+                </div>
+                <!--/sidebar -->      </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </div>
+{% endblock %}

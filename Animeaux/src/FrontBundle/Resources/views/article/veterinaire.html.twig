@@ -1,0 +1,113 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<center>
+    <h2>Veterinaire list</h2>
+    <span class="h7 mt-0"></span>
+    <hr class="small-divider ">
+
+<div id="blog-home" class="page">
+    <div class="container">
+        <div class="row">
+            <!-- Blog Entries Column -->
+            <div class="col-lg-15 page-with-sidebar">
+                <div class="row">
+
+
+                    {% for article in articles %}
+
+
+                    <div class="col-lg-6 res-margin">
+                        <!-- blog-box -->
+                        <div class="blog-box">
+                            <!-- image -->
+                                <div class="image"><img src="img/blog/blogstyle2-1.jpg" alt=""></div>
+                            <!-- blog-box-caption -->
+                            <div class="blog-box-caption">
+                                <!-- date -->
+                                <div class="date"><span class="day">{{ article.lastLogin|date('d') }}</span><span class="month">{{ article.lastLogin|date('M') }}</span></div>
+                                <a href="">
+                                    <h4>{{ article.name }}</h4>
+                                </a>
+                                <!-- /link -->
+                                <p>
+                                     Veterinaire : {{ article.name }}   <br>
+                                     Email : {{ article.email }}        <br>
+                                     Last Login is : {{ article.lastLogin|date('d') }} / {{ article.lastLogin|date('M') }} <br>
+                                     UserName : {{ article.username }}
+
+
+                                </p>
+                            </div>
+                            <!-- blog-box-footer -->
+                            <div class="blog-box-footer">
+                                <div class="author">Veterinaire : <i class="fas fa-user"></i>{{ article.username }}</div>
+                                <!-- Button -->
+                                <div class="text-center col-md-12">
+                                    <a href="" class="btn btn-primary ">Read more</a>
+                                </div>
+                            </div>
+                            <!-- /blog-box-footer -->
+                        </div>
+                        <!-- /blog-box -->
+                        <br>
+                    </div>
+
+                    {% endfor %}
+
+
+
+
+                    <!-- /col-lg-6-->
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</center>
+
+{#
+
+
+
+    <br><br><br><br>
+
+    <h1>User list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>name</th>
+                <th>username</th>
+                <th>email</th>
+                <th>roles</th>
+                <th>Last login</th>
+
+            </tr>
+        </thead>
+        <tbody>
+        {% for article in articles %}
+            <tr>
+                <td>{{ article.name }}</td>
+                <td>{{ article.username }}</td>
+                <td>{{ article.email }}</td>
+                <td>{{ article.roles[0] }}</td>
+                <td>{{ article.lastLogin|date('M') }}</td><td>{{ article.lastLogin|date('d') }}</td>
+
+
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+
+
+
+#}
+
+{% endblock %}

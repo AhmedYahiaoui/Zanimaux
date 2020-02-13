@@ -1,0 +1,155 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="{{ asset('Front/js/rating.js') }}"></script>
+    <link  rel="stylesheet" type="text/css" href="{{ asset('Front/css/rating.css') }}" >
+
+    <div class="container-fluid block-padding bg-light">
+        <div class="text-center mb-5">
+            <h2>{{ produit.nom }}</h2>
+        </div>
+        <div class="container">
+            <!-- features -->
+            <div class="row text-lg-right">
+                <div class="col-md-6 col-lg-3">
+                    <!-- feature -->
+                    <div class="feature-with-icon">
+                        <div class="icon-features">
+                            <!-- icon -->
+                            <i class="flaticon-pet-lotion"></i>
+                        </div>
+                        <h5><strong>Quantité</strong></h5>
+                        <p>{{ produit.quantite }}</p>
+                    </div>
+                    <!-- /feature-with-icon-->
+                    <!-- feature -->
+                    <div class="feature-with-icon">
+                        <div class="icon-features">
+                            <!-- icon -->
+                            <i class="flaticon-veterinarian-hospital"></i>
+                        </div>
+                        <h5><strong>Nom Boutique</strong></h5>
+                        <p>{{ produit.nomBoutique }} , Adresse : {{ produit.adresseBoutique }}</p>
+                    </div>
+                    <!-- /feature-with-icon-->
+                    <!-- feature -->
+                    <div class="feature-with-icon">
+                        <div class="icon-features">
+                            <!-- icon -->
+                            <i class="flaticon-dog-training-1"></i>
+                        </div>
+                        <h5><strong>Description</strong></h5>
+                        <p>{{ produit.description }}</p>
+                    </div>
+                    <!-- /feature-with-icon-->
+                </div>
+                <div class="col-md-6 col-lg-3 text-left pt-3 pt-sm-0 order-lg-12">
+                    <!-- feature -->
+                    <div class="feature-with-icon">
+                        <div class="icon-features">
+                            <!-- icon -->
+                            <i class="flaticon-pet-shelter"></i>
+                        </div>
+                        <h5><strong>Marque</strong></h5>
+                        <p>{{ produit.marque }}</p>
+                    </div>
+                    <!-- /feature-with-icon-->
+                    <!-- feature -->
+                    <div class="feature-with-icon">
+                        <div class="icon-features">
+                            <!-- icon -->
+                            <i class="flaticon-animal-1"></i>
+                        </div>
+                        <h5><strong>Etat</strong></h5>
+                        <p>{{ produit.etat }}</p>
+                    </div>
+                    <!-- /feature-with-icon-->
+                    <!-- feature -->
+                    <div class="feature-with-icon">
+                        <div class="icon-features">
+                            <!-- icon -->
+                            <i class="flaticon-pet"></i>
+                        </div>
+                        <h5><strong>Prix</strong></h5>
+                        <p>{{ produit.prix }} $</p>
+                    </div>
+                    <!-- /feature-with-icon-->
+                </div>
+                <!-- /col-l -->
+                <div class="text-center col-lg-5 mx-auto mt-3">
+                    <!--image  -->
+                    <img alt="" class="img-fluid rounded" src="{{ asset('images/') }}{{ produit.nomImage }}"
+                         data-aos="flip-right">
+                </div>
+
+
+
+
+
+                <!-- col-lg-7  -->
+            </div>
+<center>
+            <div id="sidebar" class="bg-light h-100 col-lg-5 card pattern3">
+                <div class="widget-area">
+                    <h5 class="sidebar-header">Réserver</h5>
+
+
+
+                    {{ form_start(f) }}
+                    {{ form_end(f) }}
+
+
+
+                    <form method="POST" name="formee" >
+                    <div class="input-group">
+
+                        <input type="number" name="test" class="form-control" placeholder="Quantité des produits ..."/>
+
+                            <span class="input-group-btn">
+                                <input class="btn btn-secondary btn-sm" type="submit" name="sub" value="Réservé"/>
+                            </span>
+                        </div>
+                    </form>
+
+
+                    {% if success is defined %}
+                        <div class="alert alert-success"><i class="fa fa-info-circle"></i>  {{ success }}</div>
+                    {% endif %}
+
+
+
+
+
+
+                </div>
+            </div>
+</center>
+            <!-- /row-->
+        </div>
+
+
+        <!-- /container -->
+    </div>
+
+
+
+
+    {#<a href="{{ path('produit_edit', { 'ref': produit.ref }) }}" class="btn btn-primary mt-4">Edit</a>#}
+<center>
+    <a href="{{ path('produit_index') }}" class="btn btn-secondary mt-4 ml-1">Back to list</a>
+    <br><br>
+</center>
+
+
+    {#
+    {{ form_start(delete_form) }}
+    <input type="submit" value="Delete" class="btn btn-secondary mt-4 ml-1">
+        {{ form_end(delete_form) }}#}
+
+
+
+
+
+{% endblock %}

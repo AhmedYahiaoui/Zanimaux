@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <center>
+
+    <h1>Article edit</h1>
+    <br><br><br><br>
+
+{#    {{ form_start(edit_form) }}
+        {{ form_widget(edit_form) }}
+        <input type="submit" value="Edit" />
+    {{ form_end(edit_form) }}#}
+
+
+        {% if is_granted('ROLE_VETERINAIRE') -%}
+
+
+
+    {{ form_start(edit_form) }}
+    <table>
+
+        <tr>
+            <th> Nom </th>
+            <th> {{ form_widget(edit_form.nomArticle) }} </th>
+        </tr>
+
+        <tr>
+            <th> Description </th>
+            <th> {{ form_widget(edit_form.description) }} </th>
+        </tr>
+        <tr>
+            <th> Image </th>
+            <th> {{ form_widget(edit_form.file) }} </th>
+        </tr>
+
+        <tr>
+            <th></th>
+            <th>     <center> <input type="submit" value="Edit" class="btn btn-primary" required="required" /></center> </th>
+        </tr>
+
+    </table>
+    {{ form_end(edit_form) }}
+    </center>
+
+
+
+
+
+
+<center>
+    <ul>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete" class="btn btn-dark">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+</center>
+
+        {%- endif %}
+
+
+
+    <br><br><br><br>
+    <ul>
+        <li>
+            <a class="custom-link  mt-5" href="{{ path('article_index') }}">Back to the list</a>
+        </li>
+    </ul>
+    <br><br><br><br><br>
+{% endblock %}

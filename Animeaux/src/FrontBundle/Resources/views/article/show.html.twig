@@ -1,0 +1,179 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="page">
+        <div class="container">
+            <div class="row">
+                <!-- Post Content Column -->
+                <div class="col-lg-9 blog-card page-with-sidebar">
+                    <h2 class="mb-2">{{ article.nomArticle }}</h2>
+                    <!-- Post info-->
+                    <div class="post-info text-muted">
+                        {{ article.date_creation|date('Y-m-d') }} by <a href="#">{{ article.idUser }}</a> <br>
+
+                        <i class="fas fa-eye margin-icon"></i>{{ nbrVue|length}}:
+                        {% if  nbrVue|length ==1 %}
+                            vue
+                        {%  else %}
+                            vues
+                        {% endif %}
+
+
+                        <a href="#"></a> /  <i class="fas fa-thumbs-up margin-icon"></i>
+                        <a href="#"></a>  <i class="fas fa-thumbs-down margin-icon"></i>
+
+
+
+
+                        {%if app.user.id == article.idUser -%}
+                            <br>
+                            <a href="{{ path('article_edit', { 'id': article.id }) }}" class="btn btn-info" >Edit your article</a>
+                            <br>
+                        {%- endif %}
+
+
+
+
+
+                    </div>
+                    <hr>
+                    <!-- Preview Image -->
+                    <img src="{{ asset('images/') }}{{ article.nomImage }}" class="img-fluid" alt="">
+                    <hr>
+                    <!-- Post Content -->
+                    <blockquote class="blockquote">
+                        <p>If having a soul means being able to feel love and loyalty and gratitude, then animals are better off than a lot of humans.</p>
+                        <cite title="Source Title">James Herriot</cite>
+                    </blockquote>
+
+                    <h4>Description</h4>
+                    <ul class="custom p-0">
+
+                        <li> <p> {{ article.description }} </p> </li>
+
+
+                    </ul>
+
+
+
+
+
+
+
+                    <script src="{{ asset('js/jquery.js') }}"></script>
+                    <script src="{{ asset('js/jquery-1.9.1.min.js') }}"></script>
+
+
+                    <!--<script src="{{ asset('js/bootstrap-portfilter.min.js') }}"></script>-->
+
+
+
+
+
+
+{#
+
+ <script src="{{ asset('js/like-dislike.js') }}"></script>
+                    <script src="{{ asset('js/like-dislike.min.js') }}"></script>
+
+
+                     <script type="text/javascript">
+                        alert({{ abath }});
+
+                        $('#demo').likeDislike({
+                            reverseMode: true,
+                            disabledClass: 'disable',
+                            initialValue: {{ abath }},
+                            dataType:'json',
+                            click: function (value, l, d, event) {
+                                var likes = $(this.element).find('.likes');
+                                var dislikes =  $(this.element).find('.dislikes');
+
+                                likes.text(parseInt(likes.text()) + l);
+                                dislikes.text(parseInt(dislikes.text()) + d);
+
+                                $.ajax({
+                                    url:'{{ path('Ajax') }}',
+                                    type: 'post',
+                                    data:{'value':likes.text(), 'value2':dislikes.text(), 'val': {{ article.id }}, 'v':value } ,
+                                    success:function (data) {
+                                        console.log(likes.text()+dislikes.text()+data+" "+value);
+
+                                    }
+                                })
+                            }
+                        });
+                    </script>
+
+
+
+#}
+
+
+
+
+
+
+
+
+                    <!-- Comments Form -->
+
+                    <div class="card my-4 mt-5 bg-light">
+                        <h5 class="card-header">Leave a Comment:</h5>
+                        <div class="card-body">
+
+
+                            <form method="POST" name="formeex">
+                                <div class="form-group">
+                                    <textarea class="form-control" name="test2" rows="3"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-secondary">Submit</button>
+                            </form>
+
+
+                        </div>
+                    </div>
+
+
+
+                    <!-- Comment -->
+
+
+
+                    {% for CommentaireArticles in CommentaireArticle %}
+
+                    <div class="comment row">
+                        <div class="col-md-3 col-xs-12 comment-img text-center float-left">
+                            <img class="rounded-circle img-fluid m-x-auto" src="{{ asset('images/team1.jpg') }}" >
+                        </div>
+                        <!-- /col-md -->
+                        <div class="col-md-9 col-xs-12 float-right">
+                            <h6 class="mt-2"><small>says:</small></h6>
+                            <p> {{ CommentaireArticles.description }} .</p>
+
+
+                            {%if app.user.id == CommentaireArticles.idUser -%}
+
+                                <button type="submit" class="btn btn-dark">Delete</button>
+
+                            {%- endif %}
+
+                        </div>
+                        <!--/media-body -->
+                    </div>
+                    {% endfor %}
+
+
+                    <!--/Comment -->
+
+
+
+                </div>
+            </div>
+        </div>
+        <a class="custom-link  mt-5" href="{{ path('article_index') }}">Go back to Events page</a>
+
+    </div>
+
+{% endblock %}

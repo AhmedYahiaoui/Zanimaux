@@ -1,0 +1,111 @@
+{% extends "::layoutAdmin.html.twig" %}
+
+{% block contenu %}
+
+    <style>
+        h1 {
+            color: #d81d1d;
+            font-family: cursive;
+            margin-right: 20%;
+        }
+    </style>
+
+
+    <style>
+        #frontbundle_evenement_date_debut,#frontbundle_evenement_date_fin,#frontbundle_evenement_nom
+        ,#frontbundle_evenement_file,#frontbundle_evenement_lieu,#frontbundle_evenement_organisateur,#frontbundle_evenement_description,#soukelmdina_admin_produit_idcategorie,#frontbundle_evenement_nbr_participant,#frontbundle_evenement_Valider{
+            width: 60%;
+            height: 50px;
+            padding: 12px 18px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 1.5px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+            -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+            transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        }
+        #frontbundle_evenement_Valider{
+            width: 100%;
+
+        }
+        #frontbundle_evenement_Annuler{
+            background-color: red;
+            background-color: #d05c5c;
+            box-shadow: 4px 2px 3px 0px black;
+        }
+
+        #frontbundle_evenement_Ajouter{
+        background-color: blue;
+        background-color: #469dcc;
+            box-shadow: 4px 2px 3px 0px black;
+        }
+
+        h3{
+
+        color: #0b1856;
+
+        }
+
+
+
+
+    </style>
+
+
+
+
+    {{ form_start(form) }}
+
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main" style="
+    background-color: #fff;
+">
+    <br>
+    <br>
+    <br>
+    <center>  <h1> Creation Evenement </h1></center>
+
+
+          <h3> Nom :</h3>
+            {{ form_widget(form.nom) }}
+
+
+
+          <h3> Date debut :</h3>
+          {{ form_widget(form.date_debut) }}
+
+
+          <h3> Date fin :</h3>
+            {{ form_widget(form.date_fin) }}
+              <h3> Lieu </h3>
+             {{ form_widget(form.lieu) }}
+
+         <h3>  Organisateur :</h3>
+             {{ form_widget(form.organisateur) }}
+
+
+
+         <h3>description :</h3>
+         {{ form_widget(form.description) }}
+
+
+         <h3> Image :</h3>
+            {{ form_widget(form.file) }}
+
+<table>
+        <tr>
+            <th> </th>
+            <td> {{ form_widget(form.Ajouter) }} </td>
+            <td> {{ form_widget(form.Annuler) }}
+        </tr>
+    </table>
+
+
+    {{ form_end(form) }}
+
+
+</div>
+    <br><br><br><br><br><br><br>
+{% endblock %}
+
